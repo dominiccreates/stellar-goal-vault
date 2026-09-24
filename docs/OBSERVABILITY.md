@@ -71,6 +71,7 @@ handler in `backend/src/index.ts`:
 | `status` | number | Status returned to the client |
 | `code` | string | Machine code, e.g. `NOT_FOUND`, `VALIDATION_ERROR` |
 | `err.message`, `err.name`, `err.stack` | string | Serialized error |
+| `indexer` | object | Background indexer freshness state (see `GET /api/health`) |
 
 Failing API responses carry the matching envelope: `{ success: false, error: { code, message,
 requestId, details? } }`, so a `requestId` from a client report can be found in the logs.

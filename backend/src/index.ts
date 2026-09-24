@@ -1169,6 +1169,7 @@ app.use((err: unknown, req: Request, res: Response, next: express.NextFunction) 
       path: req.originalUrl || req.path,
       status: statusCode,
       code,
+      indexer: getIndexerStatus(),
     },
     config.logLevel,
   );
