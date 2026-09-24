@@ -34,6 +34,8 @@ indexer is failing/stale.
 
 ### `indexer` fields (issue #1024)
 
+For operational guidelines and playbooks, refer to the [Indexer Runbook](INDEXER_RUNBOOK.md).
+
 | Field | Type | Meaning |
 | --- | --- | --- |
 | `lastSuccessfulPollTime` | number \| null | Epoch ms of last successful RPC poll |

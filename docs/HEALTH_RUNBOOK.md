@@ -340,6 +340,7 @@ curl -s http://localhost:3001/api/health/deep \
 ## Related Documents
 
 - [RUNBOOK.md](../RUNBOOK.md) — SQLite lock contention, OOM, campaign status sync, contract failures
+- [INDEXER_RUNBOOK.md](INDEXER_RUNBOOK.md) — Soroban event indexer signals and playbooks
 - [docs/TROUBLESHOOTING.md](TROUBLESHOOTING.md) — SQLite permissions, Soroban CLI, CORS, env vars
 - [docs/SECURE_CONFIGURATION.md](SECURE_CONFIGURATION.md) — Production environment variable reference
 - [DEPLOYMENT.md](../DEPLOYMENT.md) — Deploying the contract and backend to testnet/production
