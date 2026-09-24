@@ -190,14 +190,20 @@ export function CampaignsTable({
   const hasStatusFilter = statusFilter !== '';
   const isFiltered = hasSearchQuery || hasAssetFilter || hasStatusFilter;
 
-  const filteredCampaigns = useMemo(() => {
+  const baseFilteredCampaigns = useMemo(() => {
     // Apply asset + status filters first (pure client-side).
-    const assetStatusFiltered = applyFilters(campaigns, assetCode, statusFilter);
+    return applyFilters(campaigns, assetCode, statusFilter);
+  }, [campaigns, assetCode, statusFilter]);
+
+  const searchedCampaigns = useMemo(() => {
     // Then apply search query client-side (title / creator / id).
-    const searched = searchCampaigns(assetStatusFiltered, debouncedSearchQuery);
+    return searchCampaigns(baseFilteredCampaigns, debouncedSearchQuery);
+  }, [baseFilteredCampaigns, debouncedSearchQuery]);
+
+  const filteredCampaigns = useMemo(() => {
     // Server already sorted; client sort acts as a stable tie-break.
-    return sortCampaigns(searched, sortBy);
-  }, [campaigns, assetCode, statusFilter, debouncedSearchQuery, sortBy]);
+    return sortCampaigns(searchedCampaigns, sortBy);
+  }, [searchedCampaigns, sortBy]);
 
   const isMobile = useMediaQuery('(max-width: 767px)');
 
